@@ -1,4 +1,4 @@
-# oneliner payload creation for rubber ducky operations
+# oneliner for downloading payload for rubber ducky operations
 
 param(
     [string]$filename,  #filename of the payload
